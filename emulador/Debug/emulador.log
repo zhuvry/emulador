@@ -1,0 +1,3 @@
+﻿  CPU.cpp
+c:\users\familia\documents\github\graficdiffuse\interfaz\emulador\emulador\cpu.cpp(150): warning C4244: '=': conversión de 'unsigned short' a 'unsigned char'; posible pérdida de datos
+  emulador.vcxproj -> C:\Users\Familia\Documents\GitHub\graficdiffuse\interfaz\emulador\Debug\emulador.exe
