@@ -2,11 +2,20 @@
 #include "CPU.h"
 #include <iostream>
 using namespace std;
+void CPU::loadROM(const char * Path)
+{
+	V[watingKey >> 4] = watingKey & 0xF;
+	state = true;
+	watingKey = 0;
+}
+void CPU::interruption()
+{
+
+}
 CPU::CPU()
 {
 	memoria[0x000] = 0x1A;
 	memoria[0x001] = 0xBC;
-
 	memoria[0xABC] = 0xAB;
 }
 

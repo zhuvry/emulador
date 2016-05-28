@@ -11,7 +11,12 @@ private:
 	unsigned short opcode=0;
 	unsigned char n=0, kk=0, y=0, x=0;
 	unsigned short nnn=0;
+	bool state;
 public:
+	void loadROM(const char *Path);
+	unsigned char keys[16];
+	unsigned char watingKey;
+	void interruption();
 	CPU();
 	~CPU();
 	void execute();

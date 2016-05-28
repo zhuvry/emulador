@@ -7,8 +7,12 @@
 using namespace std;
 int main()
 {
-	CPU cpu;
-	cpu.execute();
+	CPU polybius;
+	polybius.loadROM(Path);
+	while (true)
+	{
+		polybius.execute();
+	}
 
     return 0;
 }
