@@ -1,15 +1,15 @@
 #pragma once
-#include <SDL.h>ñ
+#include <SDL.h>
 
 class GPU
 {
 private:
 	SDL_Window* window;
-	SDL_Render* renderer;
+	SDL_Renderer* renderer;
 	SDL_Texture* texture;
-	Uint pixels[64 * 32];
+	Uint32 pixels[64 * 32];
 public:
-	int vram[64 * 32];
+	unsigned int vram[64 * 32];
 	GPU();
 	void Render();
 	~GPU();

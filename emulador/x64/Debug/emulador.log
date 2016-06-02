@@ -1,6 +1,2 @@
-﻿  stdafx.cpp
-  emulador.cpp
-  CPU.cpp
-c:\users\familia\documents\github\emulador\emulador\cpu.cpp(150): warning C4244: '=': conversión de 'unsigned short' a 'unsigned char'; posible pérdida de datos
-  Generando código...
+﻿  CPU.cpp
   emulador.vcxproj -> C:\Users\Familia\Documents\GitHub\emulador\x64\Debug\emulador.exe
