@@ -11,9 +11,9 @@ GPU::GPU()
 }
 
 void GPU::Render() {
-	uint16_t a = 64 * 32;
-	for (uint16_t i = 0; i < a; ++i) {
-		pixels[i] = vram[i] * 0x00FFFFFF;
+	int a = 64 * 32;
+	for (int i = 0; i < a; ++i) {
+		pixels[i] = vram[i] * 0xFFFFFFFF;
 	}
 	SDL_UpdateTexture(texture, NULL, pixels, 64 * 4);
 	SDL_RenderCopy(renderer, texture, NULL, NULL);

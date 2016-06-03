@@ -9,7 +9,7 @@ private:
 	uint8_t SP = 0;
 	uint16_t stack[16];
 	uint8_t V[16]; //registros
-	uint8_t memoria[0x1000];
+	uint8_t memoria[4096];
 	uint16_t opcode=0;
 	uint8_t n=0, kk=0, y=0, x=0;
 	uint16_t nnn=0;

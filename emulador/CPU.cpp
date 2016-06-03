@@ -78,7 +78,9 @@ void CPU::execute() {
 	y = ((opcode & 0x00F0) >> 4);
 	x = ((opcode & 0x0F00) >> 8);
 	PC+=2;
+	for (int i = 0; i < 500000; i++) {
 
+	}
 	switch (opcode & 0xF000) {
 	case 0x0000:
 
@@ -95,6 +97,7 @@ void CPU::execute() {
 		case 0x0EE:
 			estadosVisitados[1] = true;
 			PC = stack[--SP];
+
 			//PC += 2;
 			break;
 		default:
@@ -142,9 +145,6 @@ void CPU::execute() {
 		break;
 	case 0x7000:
 		estadosVisitados[9] = true;
-		if (V[x] + kk > 255) {
-			int a = 23423;  //revizar luego
-		}
 		V[x] += kk;
 		break;
 	case 0x8000:
@@ -179,7 +179,7 @@ void CPU::execute() {
 			break;
 		case 0x8005:
 			estadosVisitados[15] = true;
-			if (V[x] >= V[y])
+			if (V[x] < V[y])
 			{
 				V[0xF] = 1;
 			}
@@ -197,7 +197,7 @@ void CPU::execute() {
 		case 0x8007:
 			estadosVisitados[17] = true;
 
-			if (V[y] > V[x])
+			if (V[y] < V[x])
 			{
 				V[0xF] = 1;
 			}
@@ -247,20 +247,22 @@ void CPU::execute() {
 			for (int xline = 0; xline < 8; xline++)
 			{
 				int horizontal = (V[x] + xline);
-				int vertical = ((V[y] + yline)) * 64;
-				if ((pixel &(0x80 >> xline)) != (gpu.vram[horizontal + vertical]))
+				int vertical = (((V[y] + yline))) * 64;
+				if ((pixel &(0x80 >> xline)) != (gpu.vram[V[x] + V[y]]))
 				{
-					gpu.vram[horizontal + vertical] ^= 1;
+					gpu.vram[horizontal + vertical] ^= (pixel &(0x80 >> xline));
 					V[0xF] = 1;
-					gpu.Render();
+					
 				}
 				//else {
 				//	V[0xF] = 0;
 				//}
 			}
 		}
-		//if (V[0xF] == 1)
-		//	gpu.Render();
+
+
+		if (V[0xF] == 1)
+			gpu.Render();
 		break;
 	case 0xE000:
 		switch (opcode & 0xE0FF) {
@@ -301,12 +303,7 @@ void CPU::execute() {
 		case 0xF01E:
 			estadosVisitados[30] = true;
 			I += V[x];
-			if (I > 0xFFF) {
-				V[0xF] = 1;
-			}
-			else {
-				V[0xF] = 0;
-			}
+
 			break;
 		case 0xF029:
 			estadosVisitados[31] = true;
@@ -332,5 +329,11 @@ void CPU::execute() {
 			}
 			break;
 		}
+	}
+	if (delay > 0) {
+		delay--;
+	}
+	if (soundTimer > 0) {
+		soundTimer--;
 	}
 }

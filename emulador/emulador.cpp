@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
 								   { SDLK_KP_5, 5 },{ SDLK_KP_6, 6 },{ SDLK_KP_7, 7 },{ SDLK_KP_8, 8 },{ SDLK_KP_9, 9 },
 								   { SDLK_KP_A, 10 },{ SDLK_KP_B, 11 },{ SDLK_KP_C, 12 },{ SDLK_KP_D, 13 },{ SDLK_KP_E, 14 },{ SDLK_KP_F, 15 } };
 
-	Polybius.loadROM("15PUZZLE");
+	Polybius.loadROM("INVADERS");
 	
 	
 
